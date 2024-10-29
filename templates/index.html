@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #f0fff0;
+        font-family: 'Nunito', sans-serif;
+    }
+    
+    .container {
+        background-color: #ffffff;  /* Light background for container */
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 23, 31, 0.2);
+        width: 300px;
+        box-sizing: border-box;
+    }
+    
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #008000;  /* Title in a darker color */
+    }
+    
+    form {
+        display: flex;
+        flex-direction: column;
+        font-family: 'Nunito', sans-serif;
+    }
+    
+    label {
+        margin-bottom: 5px;
+        color: #00171f;  /* Label color */
+        font-family: 'Nunito', sans-serif;
+    }
+    
+    input[type="text"],
+    input[type="number"] {
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 10px;  /* Rounded corners for inputs */
+        width: 100%;
+        box-sizing: border-box;
+        color: #00171f;
+    }
+    
+    button {
+        padding: 10px;
+        background-color: #008000;  /* Primary button color */
+        color: #ffffff;
+        border: none;
+        border-radius: 20px;  /* Fully rounded button */
+        cursor: pointer;
+        font-size: 16px;
+        text-align: center;
+    }
+    
+    button:hover {
+        background-color: #005000;  /* Slightly darker on hover */
+    }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Prediction Form</h2>
+        <form action="{{ url_for('predict_route') }}" method="POST">
+            <label for="source">Source:</label>
+            <input type="text" id="source" name="source" required>
+
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required>
+
+            <label for="duration">Duration:</label>
+            <input type="text" id="duration" name="duration" required>
+
+            <label for="congestion">Congestion Level:</label>
+            <input type="number" id="congestion" name="congestion" step="0.1" required>
+
+            <label for="speed">Speed:</label>
+            <input type="number" id="speed" name="speed" step="0.1" required>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
